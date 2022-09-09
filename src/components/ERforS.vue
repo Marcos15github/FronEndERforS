@@ -1,11 +1,12 @@
 <template>
   <v-app>
     <v-app-bar color="black" app elevation="8"  rounded-0 height="100" >
-      <v-toolbar-title >       
+      <v-toolbar-title >     
+        <v-btn dark rounded>Home</v-btn>
+      <v-btn dark  rounded>Login </v-btn>
+      <v-btn dark  rounded> About</v-btn>  
       </v-toolbar-title>
-      <v-btn dark text rounded>Home</v-btn>
-      <v-btn dark text rounded>Login </v-btn>
-      <v-btn dark text rounded> About</v-btn>
+     
       <v-spacer></v-spacer>
       
   </v-app-bar >
