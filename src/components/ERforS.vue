@@ -1,16 +1,44 @@
 <template>
-
   <v-app>
-    <v-app-bar app dark color="purple" elevation="8" rounded>
-      <v-toolbar-title src> <v-img src="../assets/LOGO ERforS.png" width="150"></v-img>       
+    <v-app-bar color="black" app elevation="8"  rounded-0 height="100" >
+      <v-toolbar-title >       
       </v-toolbar-title>
+      <v-btn dark text rounded>Home</v-btn>
+      <v-btn dark text rounded>Login </v-btn>
+      <v-btn dark text rounded> About</v-btn>
       <v-spacer></v-spacer>
-      <v-btn text rounded>Home</v-btn>
-      <v-btn text rounded>Login </v-btn>
-      <v-btn text rounded> About</v-btn>
-  </v-app-bar>
-  <v-main>
-    <v-card width="300" height="400" class="mx-auto mt-9">
+      
+  </v-app-bar >
+  <v-main >
+    <v-row
+      
+    >
+      <v-col
+        class="text-center"
+        cols="16">
+        <v-img  width="400"  class="mx-auto mt-16" src="../assets/LOGO ERforS.png"></v-img> 
+        
+      <v-alert
+      
+      v-if= "error"
+      prominent
+      :type= "typeError"
+      width="500" 
+      class="mx-auto mt-1"
+      
+    >
+      <v-row align ="center"  @click:append= "error = ! error" >
+        <v-col class="grow">
+          {{error_msg}}
+        </v-col>
+        <v-col class="shrink">
+          <v-btn  @click = "error = ! error, usuario='', password=''">Reintentar!</v-btn>
+        </v-col>
+      </v-row>
+    </v-alert>
+   
+        <div >
+          <v-card   width="300" height="400" class="mx-auto mt-2" elevation="24">
       <v-card-title > LOGIN </v-card-title>
       <v-card-text >
         <form v-on:submit.prevent="login">
@@ -32,40 +60,25 @@
         <v-btn color="info" left= "true" >Register</v-btn>
       </div>
       </form>
-      
       </v-card-text>
-      
-      
-    
     </v-card>
-    <div v-if= "error" >
-      <v-alert
-      prominent
-      :type= "typeError"
-      width="500" 
-      class="mx-auto mt-9"
-      
-    >
-      <v-row align ="center"  @click:append= "error = ! error" >
-        <v-col class="grow">
-          {{error_msg}}
-        </v-col>
-        <v-col class="shrink">
-          <v-btn  @click = "error = ! error, usuario='', password=''">Reintentar!</v-btn>
-        </v-col>
-      </v-row>
-    </v-alert>
-    
-  </div>
-  </v-main>
+    </div>
+  <p></p>
+      <v-col cols="6">
+   <v-text-field
+              
+              value="Marcos Atencia, Lez Gonzalez, Heydi Estrada, Lina Lopez, Carolina Ramir, Cristian Causil"
+              color="purple"
+              solo
+              background-color="blue"
+              readonly
+            ></v-text-field>
+          </v-col>
+      </v-col>
 
-   <!-- <v-data-table
-    :headers="headers"
-    :items="items"
-    :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table> -->
-  </v-app>
+    </v-row>
+  </v-main>
+</v-app>
 
 </template>
 
@@ -145,3 +158,14 @@ export default {
 
 };
 </script>
+<style lang="scss">
+  main {
+    background-image: url("https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg");
+    background-size: cover;
+    margin-top: -4.2%;
+    
+    
+  }
+  
+
+</style>
